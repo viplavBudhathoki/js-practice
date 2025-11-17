@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Select an element by ID
+        // Select the element with id "title" and log its text using innerText.
+        console.log(document.getElementById("description").innerText);
+
+        
+        // Change text of an element
+        // Change the text of a paragraph with id "description" to "DOM is fun!".
+        const dec = document.getElementById("description");
+        desc.innerText = "DOM is fun!";
+
+
+        // Select first button
+        // Select the first button with class "btn" using querySelector and log it.
+        const firstButton = document.querySelector(".btn");
+        console.log(firstButton);
+
+
+        // Select all list items
+        // Select all li elements and log their text using forEach.
+        const allLis = document.querySelectorAll("li");
+        allLis.forEach(li => console.log(li.innerText));
+
+
+        // Change innerHTML
+        // Change the innerHTML of a div with id "container" to include <strong>Hello World</strong>.
+        const container = document.getElementById("data-example");
+        container.innerHTML = "<strong>Hello World!</strong>";
+
+
+        // Add a new data attribute
+        // Select an element and add data-user="42" using setAttribute and dataset.
+        const dataExample = document.getElementById("data-example");
+        dataExample.setAttribute("data-user", "42");
+        dataExample.dataset.userId = "42";
+        console.log(dataExample.dataset.userId);
+        
+        
+        // Add a class to an element
+        // Select a paragraph and add the class "highlight".
+        desc.classList.add("highlight");
+
+        // Toggle a class on click
+        // Add an event listener to a button. On click, toggle the class "active" on a div.
+        const toggleDiv = document.getElementById("container");
+        toggleDiv.addEventListener("click", () => {
+            toggleDiv.classList.toggle("active");
+        });
+
+        // Create & append a new element
+        // Create a new li element with text "New Task" and append it to a ul.
+        const newTask = document.createElement("li");
+        newTask.textContent = "New Task";
+        document.getElementById("tasks").appendChild(newTask);
+
+        // Remove an element
+        // Select a paragraph and remove it from the DOM.
+        const removeElement = document.getElementById("remove-me");
+        removePara.addEventListener("click", () => {
+            removePara.remove();
+        });
+
+
+        const liDemo = document.createElement("li");
+        li.Demo.textContent = "Demo Item";
+
+        const ulDemo = document.getElementById("tasks");
+        ulDemo.prepend(liDemo); //At start
+
+        const liAnother = document.createElement("li");
+        liAnother.textContent = "Another Item";
+
+        ulDemo.insertBefore(liAnother, ulDemo.firstChild); // insert before first
+        liDemo.remove(); //remove element
+
+
+        // DOM Selection: getElementById, querySelector, querySelectorAll
+
+        // Text & HTML changes: innerText, innerHTML
+
+        // Class and attribute manipulation: classList, setAttribute, dataset
+
+        // Element creation & deletion: createElement, appendChild, prepend, insertBefore, remove
+
+        // Events: click and input
+    </script>
+</body>
+</html>
