@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9</title>
+</head>
+<body>
+    <!-- 1. What Are Events in JavaScript?
+
+    An event is something that happens in the browser that your JavaScript code can respond to. Events are actions or occurrences like:
+    User clicks a button (click)
+    User types in an input (keypress or input)
+    User changes a selection (change)
+    User submits a form (submit)
+    Events are the way your web page becomes interactive. -->
+
+    <!-- 2. Event Listeners
+    To respond to events, we use Event Listeners.
+
+    element.addEventListener(event, function);
+
+    element → the DOM element you want to listen on
+    event → the type of event (e.g., click, input, change)
+    function → what you want to happen when the event occurs 
+    
+    Example: Button Click
+    <button id="myBtn">Click Me</button>
+
+    <script>
+    const btn = document.getElementById("myBtn");
+    btn.addEventListener("click", () => {
+        alert("Button was clicked!");
+    });
+    </script>
+
+    Here, when the button is clicked, an alert pops up. -->
+
+
+    <!-- 3. Common Events
+    Event Type	            Trigger Example	                    Notes
+
+    click	              Click a button or div	                Most common
+    input	            Typing in a textbox or textarea	        Fires for every keystroke
+    keypress	            Pressing a key	                    Detects key pressed (deprecated in modern JS; use keydown or keyup)
+    keydown	                Key is pressed	                    Good for keyboard shortcuts
+    keyup	                Key is released	                    Detect when key is released
+    change	            Input, select, checkbox value changes	Fires when value is finalized
+    submit	                Form submission	                    Often used with preventDefault() -->
+
+    <script>
+        //4. Examples of Each Event
+
+        //Click Event
+        const button = document.getElementById("clickBtn");
+        button.addEventListener("click", ()=>{
+            console.log("Button Clicked!");
+        });
+
+        //Keypress/ Keydown/ Keyup
+        document.addEventListener("keydown", (event) =>{
+            console.log("Key presses:", event.key);
+        });
+
+        //Change Event
+        const checkbox = document.getElementById("agree");
+        checkbox.addEventListener("change", ()=>{
+            console.log("Checkbox is", checkbox.checked ? "checked" : "unchecked");
+        });
+
+        // Click Event - Toggle Visibility
+        const toggleBtn = document.getElementById("toggleBtn");
+        const content = document.getElementById("content");
+        toggleBtn.addEventListener("click", () => {
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        });
+
+        // Click Event - Counter Increment
+        let count = 0;
+        const counterBtn = document.getElementById("counterBtn");
+        const countDisplay = document.getElementById("countDisplay");
+        counterBtn.addEventListener("click", () => {
+            count++;
+            countDisplay.textContent = count;
+        });
+
+        // keypress Event - Real-Time Search Filter
+        const searchInput = document.getElementById("searchInput");
+        const items = document.querySelectorAll(".item");
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase();
+            items.forEach(item => {
+                item.style.display = item.textContent.toLowerCase().includes(query) ? "block" : "none";
+            });
+        });
+
+
+        // Keydown Event - Keyboard Shortcuts
+        document.addEventListener("keydown", (event) => {
+            if (event.ctrlKey && event.key === "s") {
+                event.preventDefault();
+                console.log("Save shortcut triggered!");
+            }
+        });
+
+
+        // Change Event - Dropdown Selection
+        const select = document.getElementById("themeSelect");
+        select.addEventListener("change", () => {
+            document.body.className = select.value;
+        });
+
+
+        // Change Event - Checkbox State
+        const checkbx = document.getElementById("agreeCheckbox");
+        const submitBtn = document.getElementById("submitBtn");
+        checkbx.addEventListener("change", () => {
+            submitBtn.disabled = !checkbx.checked;
+        });
+
+        // Form Validation - Submit Event
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", (event) => {
+            const email = document.getElementById("email").value;
+            if (!email.includes("@")) {
+                event.preventDefault();
+                alert("Invalid email!");
+            }
+        });
+
+
+        // Form Validation - Input Blur
+        const password = document.getElementById("password");
+        password.addEventListener("blur", () => {
+            if (password.value.length < 8) {
+                alert("Password must be at least 8 characters!");
+            }
+        });
+
+        // Click Event - Modal Open/Close
+        const openModalBtn = document.getElementById("openModal");
+        const closeModalBtn = document.getElementById("closeModal");
+        const modal = document.getElementById("modal");
+        openModalBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+        closeModalBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Keyup Event - Character Counter
+        const textInput = document.getElementById("textInput");
+        const charCount = document.getElementById("charCount");
+        textInput.addEventListener("input", () => {
+            charCount.textContent = textInput.value.length;
+        });
+    </script>
+</body>
+</html>
