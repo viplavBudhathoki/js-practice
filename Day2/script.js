@@ -55,17 +55,17 @@ console.log(isAdult(20)); //Adult
 //Types of Conditionals
 //1. if - it executes a block of code only if the condition is true.
 
-let age = 23;
+let umer = 23;
 
-if(age >= 18){
+if(umer >= 18){
     console.log("You are an adult.") //You are an adult.
 }
 // if age < 18, nothing happens
 
 //2. if...else - it executes one block if true. another if false
-let umer = 16;
+let barsa = 16;
 
-if (age >= 18){
+if (barsa >= 18){
     console.log("You are an adult");
 } else {
     console.log("You are a minor"); //Output: You are a minor.
@@ -101,13 +101,14 @@ console.log(access); //Output: Full Access
 //1. for loop - we use it when we know how man times we want to repeat
 //Syntax: for(initialization; condition; increment/decrement){ //code to run each iteration}
 for (let i = 0; i < 5; i++){
-    console.log(i); //Output: 0 1 2 3 4    Explanation:
+    console.log(i); //Output: 0 1 2 3 4
+}
 
+    //Explanation:
 // let i = 0 → start value
 // i < 5 → continue loop while true
 // i++ → increase i by 1 each time
 // Code inside {} runs on each iteration
-// }
 
 
 //2. while loop - we use it when we don't know how many times it will run
@@ -277,10 +278,10 @@ while (i <= 10) {
 console.log("Sum of first 10 natural numbers:", sum); // Output: 55
 
 //10. Given an array of numbers, use a for…of loop to find and print the largest number.
-let numbers = [12, 45, 7, 89, 34, 23];
-let largest = numbers[0]; // Assume first element is largest
+let nums = [12, 45, 7, 89, 34, 23];
+let largest = nums[0]; // Assume first element is largest
 
-for (let num of numbers) {
+for (let num of nums) {
     if (num > largest) {
         largest = num; // Update largest if current number is bigger
     }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9</title>
+</head>
+<body>
+
+    <h1 id="heading">What is your name?</h1>
+    <button id="changeBtn">Answer</button>
+
+    <textarea id="messages" rows="4" cols="40"></textarea>
+    <p>Characters: <span id="count">0</span></p>
+
+    <script>
+        const naam = document.getElementById("heading");
+        const button = document.getElementById("changeBtn");
+
+        button.addEventListener("click", () => {
+            naam.innerText = "My name is Viplav Budhathoki";
+        });
+
+
+        const message = document.getElementById("messages");
+        const count = document.getElementById("count");
+
+        message.addEventListener("input", () => {
+            count.innerText = message.value.length;
+        });
+
+        // document.getElementById()
+        const headingElement = document.getElementById("heading");
+
+        // document.querySelector()
+        const firstHeading = document.querySelector("h1");
+
+        // document.querySelectorAll()
+        const items = document.querySelectorAll(".item");
+
+        // Read & Change Content
+        headingElement.innerText = "Learning DOM (Day 9)";
+        headingElement.innerHTML = "<b>Learning DOM (Day 9)</b>";
+
+        // Change Attributes
+        headingElement.id = "newHeading";
+        headingElement.setAttribute("data-id", "123");
+        const value = headingElement.getAttribute("data-id");
+
+        // dataset
+        headingElement.dataset.userId = "42";
+        console.log(headingElement.dataset.userId);
+
+        // Change Styles / Classes
+        headingElement.classList.add("active");
+        headingElement.classList.remove("hidden");
+        headingElement.classList.toggle("open");
+
+        // Create + Insert Elements
+        const ul = document.createElement("ul");
+        document.body.appendChild(ul);
+
+        const li = document.createElement("li");
+        li.textContent = "New Item";
+
+        ul.appendChild(li);       // end
+        ul.prepend(li.cloneNode(true)); // start
+        ul.insertBefore(li.cloneNode(true), ul.firstChild); // specific position
+
+        // Remove Elements
+        // li.remove();  // modern
+
+        // Events Example
+        button.addEventListener("click", () => {
+            console.log("Button clicked!");
+        });
+
+    </script>
+
+</body>
+</html>
