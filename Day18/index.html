@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 18</title>
+</head>
+<body>
+    <div>
+        <button id="add">Add Box</button>
+        <button id="remove">Remove Last Box</button>
+        <div id="container"></div>
+    </div>
+
+    <script>
+        const container = document.getElementById("container");
+        const addBtn = document.getElementById("add");
+        const removeBtn = document.getElementById("remove");
+
+        addBtn.onclick = () =>{
+            const box = document.createElement("div");
+            box.textContent = "New Box";
+            box.classList.add("box");
+            container.append(box);
+        }
+
+        removeBtn.onclick = () =>{
+            const last = container.lastElementChild;
+            if (last) last.remove();
+        };
+    </script>
+</body>
+</html>
