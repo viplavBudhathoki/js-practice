@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 20</title>
+</head>
+<body>
+    <!-- Event Bubbling -->
+    <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+
+    <!-- Event Delegation -->
+    <!-- Event Delegation is a JavaScript technique where we add a single event listener to a parent element to handle events from its child elements 
+    even if those children are added later (dynamically). -->
+    <ul id="menu">
+        <li class="item">Home</li>
+        <li class="item">About</li>
+        <li class="item">Contact</li>
+    </ul>
+
+
+    <input type="text" id="taskInput" placeholder="Type task...">
+    <button id="addTask">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <!-- 1 -->
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <label for="live-text">Live Text:</label>
+    <input type="text" id="live-text" placeholder="Live Text...">
+
+    <p id="output"></p>
+
+    <script>
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+
+        // Parent click event
+        parent.addEventListener("click", () => {
+            console.log("Parent clicked");
+        });
+
+        // Child click event
+        child.addEventListener("click", (event) => {
+            event.stopPropagation(); // stops bubbling to parent
+            console.log("Child clicked");
+        });
+
+
+        // Instead of adding click listener to all <li>
+        document.getElementById("menu").addEventListener("click", function(event){
+            if (event.target.classList.contains("item")) {
+                console.log("Clicked:", event.target.textContent);
+            }
+        });
+
+        // Why delegation is BEST?
+        // Works for dynamic elements
+        // Only 1 event listener
+        // Faster performance
+        // Cleaner code
+
+        // Dynamic elements are HTML elements that are created, modified, or removed using JavaScript while the page is running.
+        // They do not exist in the original HTML when the page first loads.
+        // They are added dynamically by JS based on user actions or data.
+
+
+        // PUTTING EVERYTHING TOGETHER
+        // (Dynamic List + Delegation + Input Handling)
+        const taskInputField = document.getElementById("taskInput");
+        const addTaskBtn = document.getElementById("addTask");
+        const taskList = document.getElementById("taskList");
+
+
+        addTaskBtn.addEventListener("click", ()=>{
+            if (taskInputField.value.trim() === "") return;
+
+            taskList.insertAdjacentHTML(
+                "beforeend",
+                `<li class="task">${taskInputField.value} <button class="remove">Remove</button></li>`
+            );
+            taskInputField.value = "";
+        });
+
+        taskList.addEventListener("click", function(e){
+            if(e.target.classList.contains("remove")){
+                e.target.parentElement.remove();
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
