@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Day 22</title>
+</head>
+<body>
+    <!-- Question 1 -->
+    <ul id="mainMenu">
+        <li class="item">
+            Menu
+            <ul class="subMenu">
+                <li class="item">HTML</li>
+                <li class="item">CSS</li>
+                <li class="item">JS
+                    <ul class="subMenu">
+                        <li class="item">DOM</li>
+                        <li class="item">Events</li>
+                        <li class="item">Fetch API</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- Question 2 -->
+        <form id="input-form">
+            Username: <input type="text" id="input-name" placeholder="Enter your name" required><br><br>
+            Email: <input type="text" id="input-email" placeholder="Enter your email" required><br><br>
+            Password: <input type="text" id="input-password" placeholder="Enter your password" required><br><br>
+            Confirm Password: <input type="text" id="input-confirmPassword" placeholder="Confirm your password" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Question 3 -->
+
+        <div>
+            <input type="text" id="taskInput" placeholder="Add new task...">
+            <button id="addTaskBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
